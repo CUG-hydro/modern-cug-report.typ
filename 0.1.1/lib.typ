@@ -1,13 +1,13 @@
-// #import "@preview/codly:1.0.0": *
 // // 代码
+// #import "@preview/codly:1.0.0": *
+// show: codly-init.with()
 // show: codly-init.with()
 // codly(stroke: 1pt + blue)
 // codly(display-icon: true)
-
-#import "@preview/mitex:0.2.4": *
-#import "@preview/showybox:2.0.3": showybox
-#import "@preview/physica:0.9.3": *
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/mitex:0.2.5": mi, mitex
+#import "@preview/showybox:2.0.4": showybox
+#import "@preview/physica:0.9.4": *
+#import "@preview/cuti:0.3.0": show-cn-fakebold
 
 #let format-eq(it) = {
   show "{": ""
@@ -99,11 +99,6 @@
   set math.equation(numbering: "(1.1)")
   set list(indent: 1em)
 
-  // // 代码
-  // show: codly-init.with()
-  // codly(stroke: 1pt + blue)
-  // codly(display-icon: true)
-  
   show ref: ref-zh  // 引用
 
   // https://github.com/typst/typst/issues/1896
