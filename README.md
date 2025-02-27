@@ -1,6 +1,6 @@
 # typst自然科学报告写作规范
 
-案例：[example/ch03_Evapotranspiration.typ](example/ch03_Evapotranspiration.typ)
+案例：[ch03_Evapotranspiration.typ](ch03_Evapotranspiration.typ)
 
 
 ## Installation
@@ -10,6 +10,14 @@
 mkdir -path $env:APPDATA/typst/packages/local
 cd $env:APPDATA/typst/packages/local
 git clone https://github.com/CUG-hydro/modern-cug-report.typ
+```
+
+**VSCode tinymist**
+<https://github.com/hongjr03/tinymist-nightly-installer>
+
+> 安装最新版 tinymist
+```bash
+iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/download/run.ps1 -UseBasicParsing | iex
 ```
 
 ## Usage

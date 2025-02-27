@@ -65,7 +65,7 @@
 === 图件
 
 #figure(
-  image("Penman1948.png", width: 75%),
+  image("./example/Penman1948.png", width: 75%),
   caption: [Penman 1948水面蒸发示意图。]
 ) <fig_penman1948>
 
@@ -133,4 +133,4 @@ end
 
 - `gb-7714-2015-numeric`: China National Standard GB/T 7714-2015 (numeric, 中文)
 
-#bibliography("References.bib", title: "参考文献", style:"gb-7714-2015-author-date")
+#bibliography("./example/References.bib", title: "参考文献", style:"gb-7714-2015-author-date")
