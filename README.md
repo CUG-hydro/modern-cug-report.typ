@@ -5,10 +5,14 @@
 
 ## Installation
 
-```powershell
+```bash
+# powershell
+mkdir -path $env:APPDATA/typst/packages/local
 cd $env:APPDATA/typst/packages/local
 git clone https://github.com/CUG-hydro/modern-cug-report.typ
 ```
+
+## Usage
 
 ```typst
 #import "@local/modern-cug-report:0.1.1": *
@@ -25,11 +29,9 @@ git clone https://github.com/CUG-hydro/modern-cug-report.typ
 == 物理基础
 ```
 
-
-## 案例
+## CUG-Report 样例
 
 <!-- ![](./thumbnail.png) -->
-
 ![](./example/ch03_1.png)
 
 ![](./example/ch03_2.png)
