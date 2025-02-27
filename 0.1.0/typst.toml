@@ -1,0 +1,10 @@
+[package]
+name = "modern-cug-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dongdong Kong"]
+license = "MIT"
+description = "Chinese Technical report writing standards."
+compiler = "0.13.0"
+repository = "https://github.com/CUG-hydro/tech-report.typ"
+exclude = ["example", ".gitignore"]
