@@ -73,4 +73,4 @@ end
 
 图件源自#[@monteith2013] Figure 3.4。
 
-#bibliography("../../References.bib", title: "参考文献", style:"gb-7714-2015-author-date")
+#bibliography("../../example/References.bib", title: "参考文献", style:"gb-7714-2015-author-date")

@@ -2,6 +2,32 @@
 
 案例：[example/ch03_Evapotranspiration.typ](example/ch03_Evapotranspiration.typ)
 
+
+## Installation
+
+```powershell
+cd $env:APPDATA/typst/packages/local
+git clone https://github.com/CUG-hydro/modern-cug-report.typ
+```
+
+```typst
+#import "@local/modern-cug-report:0.1.1": *
+// #import "@preview/modern-cug-report:0.1.1": *
+#counter(heading).update(2)
+#let delta(x) = $Delta #x$
+
+#show: (doc) => template(doc, 
+  footer: "CUG水文气象学2024",
+  header: "蒸散发的基本原理")
+
+= 蒸散发的基本原理
+
+== 物理基础
+```
+
+
+## 案例
+
 <!-- ![](./thumbnail.png) -->
 
 ![](./example/ch03_1.png)
