@@ -3,8 +3,6 @@
 // #import "@preview/modern-cug-report:0.1.0": *
 // #import "../lib.typ": *
 #counter(heading).update(2)
-#let delta(x) = $Delta #x$
-
 #show: (doc) => template(doc, 
   footer: "CUG水文气象学2024",
   header: "蒸散发的基本原理")

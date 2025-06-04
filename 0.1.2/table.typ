@@ -42,8 +42,13 @@
 }
 
 #let set-table(it) = {
-  show table.cell.where(y: 0): strong
+  // show table.cell.where(y: 0): it => text(it, weight: "bold")
   // See the strokes section for details on this!
+  // show table.cell: (it) => {
+  //   set text(size: 10.5pt)
+  //   set par(spacing: 0.7em, leading: 0.5em)
+  //   it
+  // }
   let frame(stroke) = (x, y) => (
     left: 0pt, right: 0pt,
     // left: if x > 0 { 0pt } else { stroke },
@@ -51,10 +56,20 @@
     top: if y < 2 { stroke } else { 0pt },
     bottom: stroke,
   )
+  
   set table(
     // fill: (rgb("EAF2F5"), none),
     stroke: frame(rgb("21222C")),
     align: (x, y) => ( if x > 0 { center } else { left } )
   )
+  it
+}
+
+#let set-fontsize(it, size:10.5pt) = {
+  show cell: it => {
+    set text(size: size, weight: "regular")
+    set par(spacing: 0.7em, leading: 0.5em)
+    it
+  }
   it
 }
