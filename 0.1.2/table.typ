@@ -56,7 +56,7 @@
     top: if y < 2 { stroke } else { 0pt },
     bottom: stroke,
   )
-  
+
   set table(
     // fill: (rgb("EAF2F5"), none),
     stroke: frame(rgb("21222C")),
