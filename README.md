@@ -9,16 +9,16 @@
 # powershell
 mkdir -path $env:APPDATA/typst/packages/local
 cd $env:APPDATA/typst/packages/local
-git clone https://github.com/CUG-hydro/modern-cug-report.typ
+git clone https://github.com/CUG-hydro/modern-cug-report.typ modern-cug-report
 ```
 
 **VSCode tinymist**
-<https://github.com/hongjr03/tinymist-nightly-installer>
+<!-- <https://github.com/hongjr03/tinymist-nightly-installer> -->
 
-> 安装最新版 tinymist
-```bash
+> 安装最新版 VScode tinymist
+<!-- ```bash
 iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/download/run.ps1 -UseBasicParsing | iex
-```
+``` -->
 
 ## Usage
 
