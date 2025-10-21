@@ -7,7 +7,7 @@
 #import "./paragraph.typ": *
 #import "./table.typ": *
 #import "./list.typ": *
-#import "Base/size.typ": default_size, define_size, merge-dict, set_size
+#import "Base/size.typ": *
 
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *

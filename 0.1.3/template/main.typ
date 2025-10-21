@@ -1,9 +1,10 @@
 #import "@local/modern-cug-report:0.1.3": *
-// #import "@preview/modern-cug-report:0.1.1":*
-// #import "../lib.typ": *
+// #import "@preview/modern-cug-report:0.1.3":*
+#counter(heading).update(2)
+#let delta(x) = $Delta #x$
 
 #let size-config = define_size(
-  12pt,
+  12pt, // default base size
   (
     text: 12pt,
     math: (text: 12pt, block: 12pt),
@@ -18,13 +19,11 @@
   ),
 )
 // #size-config
+#show: doc => template(doc, size-config: size-config, 
+  footer: "CUG水文气象学2024", header: "蒸散发的基本原理")
 
-#counter(heading).update(2)
-#let delta(x) = $Delta #x$
 
-#show: doc => template(doc, size-config: size-config, footer: "CUG水文气象学2024", header: "蒸散发的基本原理")
-
-= 1 蒸散发的基本原理
+= 1 *蒸散发的基本原理*
 
 == 1.1 物理基础
 
