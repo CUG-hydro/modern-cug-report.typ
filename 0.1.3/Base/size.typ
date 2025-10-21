@@ -1,5 +1,13 @@
 #import "base.typ": is-scalar, merge-dict
 
+
+#let font = (
+  四号: 14pt,
+  小四: 12pt,
+  五号: 10.5pt,
+)
+
+
 // 必须要定义为show function才能生效
 #let set_size(it, config) = {
   set text(size: config.text)

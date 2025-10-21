@@ -4,10 +4,10 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/mannot:0.3.0": *
 
-#import "./paragraph.typ": *
-#import "./table.typ": *
-#import "./list.typ": *
 #import "Base/size.typ": *
+#import "Base/paragraph.typ": *
+#import "Base/list.typ": *
+#import "./table.typ": *
 
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
@@ -98,7 +98,7 @@
 }
 
 
-#let template(doc, size: 12pt, size-config: {}, pagenum: true, footer: "", header: "") = {
+#let template(doc, size: 12pt, size-config: (:), pagenum: true, footer: "", header: "") = {
   // 设置全局字号
   let size-config-all = define_size(size, size-config)
   show: it => set_size(it, size-config-all)

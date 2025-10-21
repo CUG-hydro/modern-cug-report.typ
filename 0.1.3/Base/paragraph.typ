@@ -1,9 +1,3 @@
-#let font = (
-  四号: 14pt,
-  小四: 12pt,
-  五号: 10.5pt,
-)
-
 #let p-compact(it, spacing: 1.24em, leading: 1em) = {
   // leading: 行距; spacing: 段距
   set par(spacing: spacing, leading: leading)
