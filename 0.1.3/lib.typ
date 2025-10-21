@@ -1,17 +1,17 @@
 #import "@preview/mitex:0.2.5": mi, mitex
-#import "@preview/showybox:2.0.4": showybox
 #import "@preview/physica:0.9.6": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold
-#import "@preview/mannot:0.3.0": *
 
 #import "Base/size.typ": *
 #import "Base/paragraph.typ": *
 #import "Base/list.typ": *
 #import "./table.typ": *
+#import "./boxes.typ": *
 
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 
+#import "@preview/mannot:0.3.0": *
 #let boxed = markrect.with(outset: (x: 0.3em, y: 0.3em))
 // #let delta(x) = $Delta#x$
 // #let pi = markhl.with(color: yellow)
@@ -43,8 +43,8 @@
 }
 
 #let ref-zh(it) = {
+  let EQ = math.equation
   let el = it.element
-  let eq = math.equation
   let obj
   let count
   let head = counter(heading).get().first()
@@ -52,8 +52,8 @@
   // el.fields()
   // el.kind == image
   if el != none {
-    if el.func() == eq {
-      count = counter(eq).at(el.location())
+    if el.func() == EQ {
+      count = counter(EQ).at(el.location())
     } else if el.kind == image {
       count = counter(figure.where(kind: image)).at(el.location())
     } else if el.kind == table {
@@ -162,41 +162,3 @@
   }
 }
 
-
-#let nonum(eq) = math.equation(block: true, numbering: none, eq)
-
-#let box-blue(it) = {
-  showybox(
-    it,
-    frame: (
-      // title-color: red.darken(30%),
-      border-color: blue.darken(30%),
-      body-color: blue.lighten(95%),
-    ),
-    // title: [*比热容*]
-  )
-}
-
-#let box-red(it) = {
-  showybox(
-    it,
-    frame: (
-      // title-color: red.darken(30%),
-      border-color: red.darken(30%),
-      body-color: red.lighten(95%),
-    ),
-    // title: [*比热容*]
-  )
-}
-
-#let box-green(it) = {
-  showybox(
-    it,
-    frame: (
-      // title-color: red.darken(30%),
-      border-color: green.darken(30%),
-      body-color: green.lighten(95%),
-    ),
-    // title: [*比热容*]
-  )
-}

@@ -43,12 +43,12 @@
     raw: text - 2pt, // 代码
     heading: (
       default: text, //
-      H1: text + 1pt, // default + 1
-      H2: text, // default
-      H3: text, // default
-      H4: text, // default
-      H5: text, // default
-      H6: text, // default
+      H1: text + 1.5pt, // default + 1
+      H2: text + 1.0pt, // default
+      H3: text + 0.5pt, // default
+      H4: text + 0.5pt, // default
+      H5: text + 0.5pt, // default
+      H6: text + 0.5pt, // default
     ),
   )
 }
