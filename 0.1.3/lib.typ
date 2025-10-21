@@ -27,13 +27,6 @@
   it
 }
 
-#let beamer-block(value) = {
-  let margin = -0.6em
-  v(margin)
-  block(fill: luma(240), inset: 0.6em, stroke: (left: 0.25em))[#value]
-  v(margin)
-}
-
 #let set-supplement(it) = {
   it
 }
