@@ -43,7 +43,7 @@
   )
 }
 
-#let define_size(text, ..kw) = {
+#let define_size(text, config) = {
   let base_size = default_size(text: text)
-  merge-dict(base_size, kw.named())
+  merge-dict(base_size, config)
 }

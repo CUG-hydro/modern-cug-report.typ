@@ -7,6 +7,7 @@
 #import "./paragraph.typ": *
 #import "./table.typ": *
 #import "./list.typ": *
+#import "Base/size.typ": default_size, define_size, merge-dict, set_size
 
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
@@ -73,6 +74,12 @@
   ]
 }
 
+#let mk-highlight(it) = {
+  let txt = it.text
+  txt = txt.replace("==", "")
+  btext(txt)
+}
+
 #let set-figure(body) = {
   set figure(numbering: it => strong[#numbering("1.1", it)])
   set figure.caption(separator: ". ")
@@ -80,11 +87,10 @@
   set figure(numbering: num => numbering("1", num))
   // set figure(numbering: num => numbering("1.1", counter(heading).get().first(), num))
   show figure.caption: it => {
-    set text(size: 12pt)
     set par(spacing: 0.9em, leading: 0.8em)
     it
   }
-  
+
   show figure.where(kind: image): set figure(supplement: text("图", weight: "bold"))
   show figure.where(kind: table): set figure(supplement: text("表", weight: "bold"))
   show figure.where(kind: table): set figure.caption(position: top)
@@ -92,20 +98,16 @@
 }
 
 
-#let template(doc, size: (heading: 13pt, text: 13pt, math: 11pt), 
-  pagenum: true, footer: "", header: "") = {
-  
-  let text_size = if type(size) == "dictionary" { size.text } else { size }
-  let math_size = if type(size) == "dictionary" { size.math } else { size_math }
-  
-  set text(size: text_size) // font: ("Microsoft YaHei")
-  set list(indent: 1em)
+#let template(doc, size: 12pt, size-config: {}, pagenum: true, footer: "", header: "") = {
+  // 设置全局字号
+  let size-config-all = define_size(size, size-config)
+  show: it => set_size(it, size-config-all)
 
+  set list(indent: 1em)
   set par(spacing: 1.24em + 0.2em, leading: 1.24em)
   set par(justify: true)
 
   show math.equation: rm-bracket
-  show math.equation: set text(size: math_size)
   show math.equation.where(block: true): set par(spacing: 0.7em, leading: 0.8em)
   set math.equation(numbering: "(1)")
   // numbering("(1.1)", counter(heading).get().first(), num)
@@ -130,7 +132,8 @@
     counter(figure.where(kind: raw)).update(0)
     it
   }
-  show heading: it => set-heading(it, size: text_size)
+
+  show heading: it => set-heading(it)
   show: show-cn-fakebold
 
   // 链接
@@ -138,14 +141,8 @@
   show link: set text(fill: rgb(0, 0, 255))
 
   // 代码
-  show raw: set text(font: ("consolas", "Microsoft Yahei", "SimSun"), size: 10pt)
-
-  show regex("==(\w+)=="): x => {
-    // let txt = x.fields().text // content object
-    let txt = x.text
-    txt = txt.replace("==", "")
-    btext(txt)
-  }
+  show raw: set text(font: ("consolas", "Microsoft Yahei", "SimSun"))
+  show regex("==(\w+)=="): mk-highlight
 
   // 页眉页脚
   // footer
@@ -164,6 +161,7 @@
     doc
   }
 }
+
 
 #let nonum(eq) = math.equation(block: true, numbering: none, eq)
 

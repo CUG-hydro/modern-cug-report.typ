@@ -1,20 +1,25 @@
 // #let font_default = ()
 #import "../Base/size.typ": default_size, define_size, set_size
 
+// #let size-config-all = define_size(text: size, size-config)
+// #show: it => set_size(it, size-config-all)
+
 = 1 test-size
 
 #let base = default_size(text: 13pt)
 #let config = define_size(
-  13pt,
-  text: 13pt,
-  math: (text: 13pt, block: 15pt),
-  table: 16pt,
-  figure: 10pt,
-  raw: 11pt,
-  heading: (
-    H1: 14pt,
-    H2: 20pt,
-    H3: 14pt,
+  13pt, // base_size
+  (
+    text: 13pt,
+    math: (text: 13pt, block: 15pt),
+    table: 16pt,
+    figure: 10pt,
+    raw: 11pt,
+    heading: (
+      H1: 14pt,
+      H2: 20pt,
+      H3: 14pt,
+    ),
   ),
 )
 

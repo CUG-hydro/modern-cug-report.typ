@@ -1,17 +1,32 @@
-#import "@local/modern-cug-report:0.1.1":*
+#import "@local/modern-cug-report:0.1.3": *
 // #import "@preview/modern-cug-report:0.1.1":*
 // #import "../lib.typ": *
+
+#let size-config = define_size(
+  12pt,
+  (
+    text: 12pt,
+    math: (text: 12pt, block: 12pt),
+    table: 13pt,
+    figure: 10pt,
+    raw: 11pt,
+    heading: (
+      H1: 13pt,
+      H2: 13pt,
+      H3: 13pt,
+    ),
+  ),
+)
+// #size-config
 
 #counter(heading).update(2)
 #let delta(x) = $Delta #x$
 
-#show: (doc) => template(doc, 
-  footer: "CUG水文气象学2024",
-  header: "蒸散发的基本原理")
+#show: doc => template(doc, size-config: size-config, footer: "CUG水文气象学2024", header: "蒸散发的基本原理")
 
-= 蒸散发的基本原理
+= 1 蒸散发的基本原理
 
-== 物理基础
+== 1.1 物理基础
 
 #box-red([
   *比热容* $c_p$：单位质量的物质升高1℃所需要的能量，$J \/ ("kg" ℃)$。
@@ -32,9 +47,9 @@
 ])
 
 
-== 如何使用
+== 1.2 如何使用
 
-=== 图件
+=== 1.2.1 图件
 
 ```
 #figure(
@@ -43,7 +58,7 @@
 ) <fig_penman1948>
 ```
 
-=== 表格
+=== 1.2.2 表格
 
 #figure(
   caption: [土壤类型、$K$、与$K"lat"_"factor"$值。表格出自Fan et al. (2007) Table 2。],
@@ -51,17 +66,15 @@
     columns: (1.5cm, 4cm, 3cm, 2cm),
     // inset: 10pt,
     align: horizon,
-    table.header(
-      [*编号*], [*土壤类型*], [*$K$*], [*$K"lat"_"factor"$*],
-    ),
+    table.header([*编号*], [*土壤类型*], [*$K$*], [*$K"lat"_"factor"$*]),
     [1], "sand", [15.2064], [2],
-  )
+  ),
 )
 
-=== 代码
+=== 1.2.3 代码
 
 ```julia
-function Fourier(y::AbstractVector{FT}, P::FT=length(y); 
+function Fourier(y::AbstractVector{FT}, P::FT=length(y);
   threshold=0.95) where {FT<:Real}
   Δt = P / N
   t = 0.0:Δt:(P-Δt)   # lenght(t) == N
@@ -69,8 +82,8 @@ function Fourier(y::AbstractVector{FT}, P::FT=length(y);
 end
 ```
 
-=== 参考文献
+=== 1.2.4 参考文献
 
 图件源自#[@monteith2013] Figure 3.4。
 
-#bibliography("../../example/References.bib", title: "参考文献", style:"gb-7714-2015-author-date")
+#bibliography("../../example/References.bib", title: "参考文献", style: "gb-7714-2015-author-date")
