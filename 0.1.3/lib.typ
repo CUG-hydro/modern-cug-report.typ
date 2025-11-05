@@ -12,7 +12,15 @@
 #import "@preview/codly-languages:0.1.1": *
 
 #import "@preview/mannot:0.3.0": *
-#let boxed = markrect.with(outset: (x: 0.3em, y: 0.3em))
+#let boxed(it, x: 0.25em) = {
+  let xmar2 = x - 0.02em
+  h(xmar2)
+  markrect(outset: (x: x, y: 0.3em))[#it]
+  h(xmar2)
+}
+
+// 通过迭代，可以求得$u^*$，进而得到 $boxed(overline(a) = u^* pdv(f, a))$，代码如下。
+
 // #let delta(x) = $Delta#x$
 // #let pi = markhl.with(color: yellow)
 // #let pj = markhl.with(color: red)

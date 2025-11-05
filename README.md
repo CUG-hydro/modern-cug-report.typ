@@ -32,6 +32,8 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
   footer: "CUG水文气象学2024",
   header: "蒸散发的基本原理")
 
+#show heading.where(level: 1): set text(weight: "regular")
+
 = 蒸散发的基本原理
 
 == 物理基础

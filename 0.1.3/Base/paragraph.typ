@@ -14,7 +14,7 @@
   }
 
   show heading.where(level: 1): it => {
-    set text(fill: blue, weight: "regular") // size: 14pt, 
+    set text(fill: blue) // size: 14pt, , weight: "regular"
     set par(leading: 1.0em, spacing: 1.24em)
     show "、": [、#h(0.2em)]
     show "，": [，#h(0.2em)]
