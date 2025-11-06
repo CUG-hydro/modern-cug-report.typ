@@ -99,12 +99,19 @@
 }
 
 
-#let template(doc, size: 12pt, size-config: (:), pagenum: true, footer: "", header: "") = {
+#let template(doc, size: 12.5pt, size-config: (:), pagenum: true, footer: "", header: "") = {
   // 设置全局字号
   let size-config-all = define_size(size, size-config)
   show: it => set_size(it, size-config-all)
 
   set list(indent: 1em)
+  show list: it => {
+    let space = -0.2em
+    v(space)
+    it
+    v(space)
+  }
+
   set par(spacing: 1.24em + 0.2em, leading: 1.24em)
   set par(justify: true)
 

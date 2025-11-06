@@ -23,16 +23,14 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 ## Usage
 
 ```typst
-#import "@local/modern-cug-report:0.1.1": *
 // #import "@preview/modern-cug-report:0.1.1": *
-#counter(heading).update(2)
-#let delta(x) = $Delta #x$
-
+#import "@local/modern-cug-report:0.1.3": *
 #show: (doc) => template(doc, 
-  footer: "CUG水文气象学2024",
+  footer: "CUG水文气象学2025",
   header: "蒸散发的基本原理")
-
 #show heading.where(level: 1): set text(weight: "regular")
+#let delta(x) = $Delta #x$
+#counter(heading).update(2) // 章节编号
 
 = 蒸散发的基本原理
 

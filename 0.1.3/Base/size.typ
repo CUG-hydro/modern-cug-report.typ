@@ -35,8 +35,8 @@
   (
     text: text,
     math: (
-      text: text, // 插入正文的公式
-      block: text, // 单独一行的公式
+      text: text - 0.5pt, // 插入正文的公式
+      block: text - 0.5pt, // 单独一行的公式
     ),
     figure: text - 1pt, // 图件标题
     table: text - 1pt, // 表格标题

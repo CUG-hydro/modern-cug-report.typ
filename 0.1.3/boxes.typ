@@ -3,10 +3,8 @@
 
 #let nonum(eq) = math.equation(block: true, numbering: none, eq)
 
-#let mybox(it, color) = {
+#let mybox(it, color, width: auto) = {
   context {
-    let size = measure(it)
-    v(-0.2em)
     showybox(
       it,
       frame: (
@@ -15,7 +13,7 @@
         border-color: color.darken(30%),
         body-color: color.lighten(95%),
       ),
-      width: size.width + 1em,
+      width: width,
       // width: 90%,
       // title: [*比热容*]
     )
@@ -32,11 +30,11 @@
 #let beamer-block(value, color: black.lighten(10%)) = {
   let margin = -0.4em
   v(margin)
-  
+
   let mar = 0.25em
   pad(left: mar)[
     #block(fill: luma(240), inset: (x: 0.4em, y: 0.6em), outset: 0em, stroke: (left: mar + color))[#value]
   ]
-  
+
   v(margin)
 }
