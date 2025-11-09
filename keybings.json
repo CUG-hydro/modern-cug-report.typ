@@ -1,0 +1,10 @@
+[
+  {
+    "key": "alt+m",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == 'typst'",
+    "args": {
+      "snippet": "#[@]"
+    }
+  }
+]
