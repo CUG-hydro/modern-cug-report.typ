@@ -2,9 +2,9 @@
 // show: codly-init.with()
 // codly(stroke: 1pt + blue)
 // codly(display-icon: true)
-#import "@preview/mitex:0.2.5": mi, mitex
+#import "@preview/mitex:0.2.6": mi, mitex
 #import "@preview/showybox:2.0.4": showybox
-#import "@preview/physica:0.9.4": *
+#import "@preview/physica:0.9.6": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "./paragraph.typ": *
 #import "./table.typ": *
@@ -96,7 +96,7 @@
   set par(spacing: 1.24em + 0.1em, leading: 1.24em)
   set par(justify: true)
   
-  show math.equation: rm-bracket
+  // show math.equation: rm-bracket
   show math.equation: set text(size: 11pt)
   show math.equation.where(block: true): set par(spacing: 0.7em, leading: 0.8em)
   set math.equation(numbering: "(1)")

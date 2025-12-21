@@ -1,6 +1,7 @@
 #import "@preview/mitex:0.2.6": mi, mitex
 #import "@preview/physica:0.9.7": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/tablem:0.3.0": tablem, three-line-table
 
 #import "Base/size.typ": *
 #import "Base/paragraph.typ": *
@@ -115,7 +116,7 @@
   set par(spacing: 1.24em + 0.2em, leading: 1.24em)
   set par(justify: true)
 
-  show math.equation: rm-bracket
+  // show math.equation: rm-bracket
   show math.equation.where(block: true): set par(spacing: 0.7em, leading: 0.8em)
   set math.equation(numbering: "(1)")
   // numbering("(1.1)", counter(heading).get().first(), num)

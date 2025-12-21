@@ -14,18 +14,17 @@
         body-color: color.lighten(95%),
       ),
       width: width,
-      // width: 90%,
       // title: [*比热容*]
     )
     v(-0.2em)
   }
 }
 
-#let box-blue(it) = mybox(it, blue)
+#let box-blue(it, width: auto) = mybox(it, blue, width: width)
 
-#let box-green(it) = mybox(it, green)
+#let box-green(it, width: auto) = mybox(it, green, width: width)
 
-#let box-red(it) = mybox(it, red)
+#let box-red(it, width: auto) = mybox(it, red, width: width)
 
 #let beamer-block(value, color: black.lighten(10%)) = {
   let margin = -0.4em
