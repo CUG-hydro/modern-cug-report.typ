@@ -1,6 +1,6 @@
 #import "@preview/mitex:0.2.6": mi, mitex
-#import "@preview/physica:0.9.7": *
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/physica:0.9.8": *
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "@preview/tablem:0.3.0": tablem, three-line-table
 
 #import "Base/size.typ": *
@@ -10,7 +10,7 @@
 #import "./boxes.typ": *
 
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.10": *
 
 #import "@preview/mannot:0.3.1": *
 #let boxed(it, x: 0.25em) = {
