@@ -145,6 +145,9 @@
   show heading: it => set-heading(it)
   show: show-cn-fakebold
 
+  show "“": it => text("“", font: "SimSun")
+  show "”": it => text("”", font: "SimSun")
+
   // 链接
   show link: underline
   show link: set text(fill: rgb(0, 0, 255))
