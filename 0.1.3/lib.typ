@@ -1,4 +1,4 @@
-#import "@preview/mitex:0.2.6": mi, mitex
+#import "@preview/mitex:0.2.7": mi, mitex
 #import "@preview/physica:0.9.8": *
 #import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "@preview/tablem:0.3.0": tablem, three-line-table
@@ -13,6 +13,11 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
 
+#import "@preview/mannot:0.3.3": *
+// #let delta(x) = $Delta#x$
+// #let pi = markhl.with(color: yellow)
+// #let pj = markhl.with(color: red)
+
 #let boxed(it, x: 0.25em) = {
   let xmar2 = x - 0.02em
   h(xmar2)
@@ -21,11 +26,6 @@
 }
 
 // 通过迭代，可以求得$u^*$，进而得到 $boxed(overline(a) = u^* pdv(f, a))$，代码如下。
-
-#import "@preview/mannot:0.3.1": *
-// #let delta(x) = $Delta#x$
-// #let pi = markhl.with(color: yellow)
-// #let pj = markhl.with(color: red)
 
 #let Blue(it) = {
   text(fill: blue)[*#it*]
