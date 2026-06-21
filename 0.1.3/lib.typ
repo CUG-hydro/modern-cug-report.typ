@@ -1,6 +1,6 @@
 #import "@preview/mitex:0.2.7": mi, mitex
 #import "@preview/physica:0.9.8": *
-#import "@preview/cuti:0.4.0": show-cn-fakebold
+// #import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "@preview/tablem:0.3.0": tablem, three-line-table
 
 #import "Base/size.typ": *
@@ -144,7 +144,7 @@
   }
 
   show heading: it => set-heading(it)
-  show: show-cn-fakebold
+//   show: show-cn-fakebold
 
   show "“": it => text("“", font: "SimSun")
   show "”": it => text("”", font: "SimSun")
