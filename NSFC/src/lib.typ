@@ -90,7 +90,8 @@
 
 
 #let template(doc, size: 13pt, pagenum: true, footer: "", header: "") = {
-  set text(size: size) // font: ("Microsoft YaHei")
+  set text(size: size, font: ("Times New Roman", "KaiTi")) // font: ("Microsoft YaHei")
+
   set list(indent: 1em)
 
   set par(spacing: 1.24em + 0.1em, leading: 1.24em)
@@ -128,7 +129,7 @@
   show link: set text(fill: rgb(0, 0, 255))
 
   // 代码
-  show raw: set text(font: ("consolas", "Microsoft Yahei", "SimSun"), size: 10pt)
+  show raw: set text(font: ("consolas", "SimSun", "Microsoft Yahei"), size: 10pt)
 
   show regex("==(\w+)=="): x => {
     // let txt = x.fields().text // content object

@@ -103,6 +103,7 @@
 
 #let template(doc, size: 12.5pt, size-config: (:), pagenum: true, footer: "", header: "") = {
   // 设置全局字号
+  set text(font: ("Times New Roman", "Consolas", "KaiTi", "SimSun"))
   let size-config-all = define_size(size, size-config)
   show: it => set_size(it, size-config-all)
 
