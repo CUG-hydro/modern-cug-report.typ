@@ -7,6 +7,7 @@
 #import "Base/paragraph.typ": *
 #import "Base/list.typ": *
 #import "./table.typ": *
+#import "./table-bar.typ": *
 #import "./boxes.typ": *
 #import "./csv.typ": *
 
