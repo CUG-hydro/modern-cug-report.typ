@@ -20,6 +20,13 @@ git clone https://github.com/CUG-hydro/modern-cug-report.typ modern-cug-report
 iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/download/run.ps1 -UseBasicParsing | iex
 ``` -->
 
+## News
+
+### v0.1.4
+
+- 支持`table-long`长表格换页
+- 支持`table-bar` colorbar column
+
 ## Usage
 
 ```typst

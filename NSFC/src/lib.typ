@@ -2,10 +2,10 @@
 // show: codly-init.with()
 // codly(stroke: 1pt + blue)
 // codly(display-icon: true)
-#import "@preview/mitex:0.2.6": mi, mitex
+#import "@preview/mitex:0.2.7": mi, mitex
 #import "@preview/showybox:2.0.4": showybox
-#import "@preview/physica:0.9.6": *
-// #import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/physica:0.9.7": *
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "./paragraph.typ": *
 #import "./table.typ": *
 #import "./list.typ": *
@@ -122,7 +122,7 @@
     it
   }
   show heading: it => set-heading(it, size: size)
-  // show: show-cn-fakebold
+  show: show-cn-fakebold
 
   // 链接
   show link: underline

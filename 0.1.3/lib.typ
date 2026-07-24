@@ -8,6 +8,7 @@
 #import "Base/list.typ": *
 #import "./table.typ": *
 #import "./table-bar.typ": *
+#import "./table-long.typ": *
 #import "./boxes.typ": *
 #import "./csv.typ": *
 
@@ -49,26 +50,25 @@
 #let ref-zh(it) = {
   let EQ = math.equation
   let el = it.element
-  let obj
-  let count
-  let head = counter(heading).get().first()
 
-  // el.fields()
-  // el.kind == image
-  if el != none {
-    if el.func() == EQ {
-      count = counter(EQ).at(el.location())
-    } else if el.kind == image {
-      count = counter(figure.where(kind: image)).at(el.location())
-    } else if el.kind == table {
-      count = counter(figure.where(kind: table)).at(el.location())
-    } else if el.kind == raw {
-      count = counter(figure.where(kind: raw)).at(el.location())
-    }
-    // numbering("1.1", head, count)
-    link(el.location(), numbering("1", ..count))
-  } else {
+  if el == none {
     it
+  } else {
+    let location = el.location()
+    let children = el.fields().at("children", default: ())
+    let figure-el = children.find(child => child.func() == figure)
+    let el = if figure-el == none { el } else { figure-el }
+
+    if el.func() == EQ {
+      let count = counter(EQ).at(location)
+      link(location, numbering("1", ..count))
+    } else if el.func() == figure {
+      let count = counter(figure.where(kind: el.kind)).at(location)
+      let count = if figure-el == none { count } else { count.map(n => n + 1) }
+      link(location, numbering("1", ..count))
+    } else {
+      it
+    }
   }
 }
 

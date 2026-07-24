@@ -17,8 +17,7 @@
   x,
   max: 1,
   side: "one",
-  pos-color: rgb("#c8e6c9"),
-  neg-color: rgb("#ffcdd2"),
+  colors: (pos: rgb("#c8e6c9"), neg: rgb("#ffcdd2")),
 ) = {
   let value = bar-number(x)
   let positive = value >= 0
@@ -33,7 +32,7 @@
       #place(align + horizon, dx: dx, rect(
         width: width,
         height: 96%,
-        fill: if positive { pos-color } else { neg-color },
+        fill: if positive { colors.pos } else { colors.neg },
       ))
       #if side == "two" {
         place(left + horizon, dx: 50%, rect(
@@ -52,14 +51,18 @@
   bar: (),
   max: none,
   side: "one",
-  pos-color: rgb("#c8e6c9"),
-  neg-color: rgb("#ffcdd2"),
-  ..args
+  colors: (pos: rgb("#c8e6c9"), neg: rgb("#ffcdd2")),
+  ..args,
 ) = {
-  let ncols = columns.len()
+  let ncols = if type(columns) == int { columns } else { columns.len() }
   let data = args.pos()
+  let has-header = data.len() > 0 and type(data.first()) == content and data.first().func() == table.header
+  let offset = if has-header { 1 } else { ncols }
+  let prefix = data.slice(0, offset)
+  let data = data.slice(offset)
+  
   let column-max(col) = {
-    let values = data.slice(ncols + col - 1).chunks(ncols)
+    let values = data.slice(col - 1).chunks(ncols)
     calc.max(..values.map(row => calc.abs(bar-number(row.first()))))
   }
   let bar = bar.map(spec => {
@@ -74,17 +77,16 @@
     .map(((i, cell)) => {
       let col = calc.rem(i, ncols) + 1
       let spec = bar.find(spec => spec.column == col)
-      if i >= ncols and spec != none {
+      if spec == none {
+        cell
+      } else {
         bar-cell(
           cell,
           max: spec.max,
           side: side,
-          pos-color: pos-color,
-          neg-color: neg-color,
+          colors: colors,
         )
-      } else {
-        cell
       }
     })
-  table(columns: columns, ..args.named(), ..cells)
+  table(columns: columns, ..args.named(), ..prefix, ..cells)
 }
