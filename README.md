@@ -6,9 +6,13 @@
 ## Installation
 
 ```bash
-# powershell
+# windows 
 mkdir -path $env:APPDATA/typst/packages/local
 cd $env:APPDATA/typst/packages/local
+
+# linux
+mkdir -p ~/.local/share/typst/packages/local
+cd ~/.local/share/typst/packages/local
 git clone https://github.com/CUG-hydro/modern-cug-report.typ modern-cug-report
 ```
 
@@ -26,6 +30,26 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 
 - 支持`table-long`长表格换页
 - 支持`table-bar` colorbar column
+
+  ```typst
+  #figure(
+    caption: [双向bar],
+    table-bar(
+      columns: (65pt, w1, w1, w1, w1),
+      align: center,
+      max: 0.15,
+      side: "two", // or one
+      bar: (
+        (column: 2),
+        (column: 3, max: 0.3),
+        (column: 4),
+        (column: 5),
+      ),
+      ..cells,
+    ),
+  ) <table_>
+  ```
+  <!-- ![](tests/test_table-bar.min.svg) -->
 
 ## Usage
 
@@ -53,24 +77,3 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 
 ![](./example/ch03_3.png)
 
-## table-bar
-
-```typst
-#figure(
-  caption: [双向bar],
-  table-bar(
-    columns: (65pt, w1, w1, w1, w1),
-    align: center,
-    max: 0.15,
-    side: "two", // or one
-    bar: (
-      (column: 2),
-      (column: 3, max: 0.3),
-      (column: 4),
-      (column: 5),
-    ),
-    ..cells,
-  ),
-) <table_>
-```
-![](./example/test_table-bar.svg)
