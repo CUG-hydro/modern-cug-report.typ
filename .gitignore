@@ -3,3 +3,4 @@
 # *.pdf
 *.vsix
 *.pdf
+!tests/test_graph-table.svg
