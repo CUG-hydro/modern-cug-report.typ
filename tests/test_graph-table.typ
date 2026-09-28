@@ -1,10 +1,12 @@
 #import "@local/modern-cug-report:0.1.3": *
-#show: doc => template(doc, footer: "CUG水文气象学2026", header: "")
+#show: doc => template(doc, footer: "", header: "", pagenum: false)
 
+#set page(height: 5.5in, width: 14cm, margin: 0.4cm)
 #let w1 = 2.6cm
 
-#wrap-table(
-  caption: [标题],
+// wrap-table：包装已有的 table，可附加柱状图、汇总等。
+#graph-table(
+  caption: [仿excel colorbar的表格],
   max: 0.15,
   side: "two",
   bar: (
@@ -38,5 +40,4 @@
     [丁寨], "−0.054", "−0.043", "−0.106", "−0.021",
   ),
 ) <table2>
-
-如表#[@table2]所示。
+// 如表#[@table2]所示。

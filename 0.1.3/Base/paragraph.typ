@@ -24,11 +24,12 @@
     // counter(figure.where(kind: raw)).update(0)
     // it.fields()
     v(0.5em)
-    it.body
+    it
+    // v(0.2em)
   }
 
   show heading.where(level: 2): it => {
-    set text(fill: black, weight: "bold") // size: 13pt, 
+    set text(fill: black, weight: "bold") // size: 13pt,
     v(0.2em)
     it
     v(0.6em)

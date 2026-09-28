@@ -1,7 +1,6 @@
 #let cell-body(x) = if type(x) == content and x.func() == table.cell { x.body } else { x }
 
 #let cell-text(x) = {
-  let x = cell-body(x)
   if type(x) == str {
     x
   } else {
@@ -35,13 +34,13 @@
   let ratio = if span == 0 {
     0
   } else {
-    calc.max(0, calc.min(distance / span, 1))
+    calc.clamp(distance / span, 0, 1)
   }
   let ratio = if value == origin { 0 } else { calc.max(ratio, 0.02) }
   let width = ratio * if two { 50% } else { 100% }
   let align = if two and not positive { right } else { left }
   let dx = if two { if positive { 50% } else { -50% } } else { 0% }
-  
+
   table.cell(inset: 0pt)[
     #block(width: 95%, height: 1.2em)[
       #place(align + horizon, dx: dx, rect(
@@ -49,14 +48,14 @@
         height: 96%,
         fill: if positive { colors.pos } else { colors.neg },
       ))
-      #if side == "two" {
+      #if two {
         place(left + horizon, dx: 50%, rect(
           width: 0.5pt,
           height: 100%,
           fill: gray,
         ))
       }
-      #place(center + horizon, text(size: 11pt)[#x])
+      #place(center + horizon, x)
     ]
   ]
 }
@@ -95,17 +94,14 @@
     )
     (column: spec.column, min: lower, max: upper)
   })
-  let cells = data.enumerate().map(((i, cell)) => {
-    if is-line(cell) {
-      cell
-    } else {
-      let i = data.slice(0, i).filter(cell => not is-line(cell)).len()
-      let col = calc.rem(i, ncols) + 1
+  let cells = ()
+  let col = 0
+  for cell in data {
+    if not is-line(cell) {
+      col = calc.rem(col, ncols) + 1
       let spec = bar.find(spec => spec.column == col)
-      if spec == none {
-        cell
-      } else {
-        bar-cell(
+      if spec != none {
+        cell = bar-cell(
           cell,
           min: spec.min,
           max: spec.max,
@@ -114,6 +110,7 @@
         )
       }
     }
-  })
+    cells.push(cell)
+  }
   table(columns: columns, ..args.named(), ..prefix, ..cells)
 }

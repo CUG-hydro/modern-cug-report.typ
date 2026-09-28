@@ -28,7 +28,7 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 
 ### v0.1.4
 
-- 支持`table-long`长表格换页
+- 支持 `graph-table` 包装表格并重复表头
 - 支持`table-bar` colorbar column
 
   ```typst
@@ -49,7 +49,8 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
     ),
   ) <table_>
   ```
-  <!-- ![](tests/test_table-bar.min.svg) -->
+  案例：[test_graph-table.typ](tests/test_graph-table.typ)
+  ![](tests/test_graph-table.svg)
 
 ## Usage
 

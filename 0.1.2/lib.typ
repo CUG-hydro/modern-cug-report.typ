@@ -1,6 +1,6 @@
 // #import "@preview/codly:1.0.0": *
 #import "@preview/codly:1.3.0": *
-#import "@preview/mitex:0.2.5": mi, mitex
+#import "@preview/mitex:0.2.7": mi, mitex
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/physica:0.9.5": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold

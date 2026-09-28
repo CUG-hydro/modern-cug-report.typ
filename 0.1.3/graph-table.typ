@@ -4,7 +4,7 @@
   let x = calc.round(x, digits: digits)
   let parts = str(calc.abs(x)).split(".")
   let frac = parts.at(1, default: "")
-  let zeros = range(digits - frac.len()).map(_ => "0").join()
+  let zeros = "0" * (digits - frac.len())
   let sign = if x < 0 { "−" } else if signed and x > 0 { "+" } else { "" }
   sign + parts.first() + "." + frac + zeros
 }
@@ -14,8 +14,7 @@
   ..cells.pos().map(cell => table.cell(stroke: (bottom: stroke), strong(cell))),
 )
 
-
-#let wrap-table(
+#let graph-table(
   body,
   caption: [],
   summary-fn: none,
@@ -60,26 +59,4 @@
   align(center)[#body]
 }
 
-#let table-long(
-  columns: (auto,),
-  header: none,
-  caption: [],
-  table-fn: table,
-  ..args,
-) = {
-  let ncols = if type(columns) == int { columns } else { columns.len() }
-  let cells = args.pos()
-  let auto-header = header == none
-  let header = if auto-header { cells.slice(0, ncols) } else { header }
-  let cells = if auto-header { cells.slice(ncols) } else { cells }
-  let header = if type(header) == content and header.func() == table.header {
-    header
-  } else {
-    repeat-header(..header)
-  }
-
-  wrap-table(
-    table-fn(columns: columns, ..args.named(), header, ..cells),
-    caption: caption,
-  )
-}
+#let wrap-table = graph-table

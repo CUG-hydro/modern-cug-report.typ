@@ -8,7 +8,7 @@
 #import "Base/list.typ": *
 #import "./table.typ": *
 #import "./table-bar.typ": *
-#import "./table-long.typ": *
+#import "graph-table.typ": *
 #import "./boxes.typ": *
 #import "./csv.typ": *
 
