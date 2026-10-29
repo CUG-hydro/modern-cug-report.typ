@@ -2,39 +2,48 @@
 
 案例：[ch03_Evapotranspiration.typ](ch03_Evapotranspiration.typ)
 
-
 ## Installation
 
-```bash
-# windows 
-mkdir -path $env:APPDATA/typst/packages/local
-cd $env:APPDATA/typst/packages/local
+Windows（PowerShell）：
 
-# linux
-mkdir -p ~/.local/share/typst/packages/local
-cd ~/.local/share/typst/packages/local
+```powershell
+$dir_local="$env:APPDATA/typst/packages/local"
+mkdir -Force $dir_local
+cd $dir_local
+git clone https://github.com/CUG-hydro/modern-cug-report.typ modern-cug-report
+```
+
+Linux / macOS（选择对应路径）：
+
+```bash
+# Linux
+dir_local=~/.local/share/typst/packages/local
+
+# macOS
+dir_local="$HOME/Library/Application Support/typst/packages/local"
+
+mkdir -p "$dir_local"
+cd "$dir_local"
 git clone https://github.com/CUG-hydro/modern-cug-report.typ modern-cug-report
 ```
 
 **VSCode tinymist**
+
 <!-- <https://github.com/hongjr03/tinymist-nightly-installer> -->
 
 > 安装最新版 VScode tinymist
-<!-- ```bash
-iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/download/run.ps1 -UseBasicParsing | iex
-``` -->
 
 ## News
 
 ### v0.1.4
 
-- 支持 `graph-table` 包装表格并重复表头
-- 支持`table-bar` colorbar column
+- 支持`graph-table` 包装表格并重复表头
+- 支持`graph-table` colorbar column
 
   ```typst
   #figure(
     caption: [双向bar],
-    table-bar(
+    graph-table(
       columns: (65pt, w1, w1, w1, w1),
       align: center,
       max: 0.15,
@@ -49,6 +58,7 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
     ),
   ) <table_>
   ```
+
   案例：[test_graph-table.typ](tests/test_graph-table.typ)
   ![](tests/test_graph-table.svg)
 
@@ -57,7 +67,7 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 ```typst
 // #import "@preview/modern-cug-report:0.1.1": *
 #import "@local/modern-cug-report:0.1.3": *
-#show: (doc) => template(doc, 
+#show: (doc) => template(doc,
   footer: "CUG水文气象学2025",
   header: "蒸散发的基本原理")
 #show heading.where(level: 1): set text(weight: "regular")
@@ -72,9 +82,9 @@ iwr https://github.com/hongjr03/tinymist-nightly-installer/releases/latest/downl
 ## CUG-Report 样例
 
 <!-- ![](./thumbnail.png) -->
+
 ![](./example/ch03_1.png)
 
 ![](./example/ch03_2.png)
 
 ![](./example/ch03_3.png)
-
